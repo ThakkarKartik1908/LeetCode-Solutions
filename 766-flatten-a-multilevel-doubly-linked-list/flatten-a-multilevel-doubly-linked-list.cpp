@@ -12,14 +12,14 @@ public:
 class Solution {
 public:
     Node* flatten(Node* head) {
-        if(head == NULL){
+        if (head == NULL) {
             return head;
         }
-        Node* curr = head ;
-        while(curr != NULL){
-            
-            if(curr->child != NULL){
-                //Flatten the child  Nodes
+        Node* curr = head;
+        while (curr != NULL) {
+
+            if (curr->child != NULL) {
+                // Flatten the child  Nodes
                 Node* next = curr->next;
                 curr->next = flatten(curr->child);
 
@@ -27,21 +27,19 @@ public:
                 curr->child = NULL;
 
                 // find tail
-                while(curr->next != NULL){
+                while (curr->next != NULL) {
                     curr = curr->next;
-
                 }
 
                 // attach tail with next ptr
-                if(next != NULL){
+                if (next != NULL) {
                     curr->next = next;
                     next->prev = curr;
                 }
-
             }
             curr = curr->next;
         }
-      
-        return head; 
+
+        return head;
     }
 };
