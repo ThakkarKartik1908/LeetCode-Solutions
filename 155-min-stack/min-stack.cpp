@@ -3,42 +3,37 @@ public:
     stack<long long int> s;
     long long int minval;
 
-    MinStack() {
-        
-    }
-    
+    MinStack() {}
+
     void push(int val) {
-        if(s.empty()){
+        if (s.empty()) {
             s.push(val);
             minval = val;
-        }else{
-            if(val < minval){
-                s.push((long long)2*val - minval);
+        } else {
+            if (val < minval) {
+                s.push((long long)2 * val - minval);
                 minval = val;
-            }else{
+            } else {
                 s.push(val);
             }
         }
     }
-    
+
     void pop() {
-        if(s.top() < minval){
-            minval = 2*minval - s.top();
+        if (s.top() < minval) {
+            minval = 2 * minval - s.top();
         }
         s.pop();
-         
     }
-    
+
     int top() {
-        if(s.top() < minval){
+        if (s.top() < minval) {
             return minval;
         }
         return s.top();
     }
-    
-    int getMin() {
-        return minval;
-    }
+
+    int getMin() { return minval; }
 };
 
 /**
