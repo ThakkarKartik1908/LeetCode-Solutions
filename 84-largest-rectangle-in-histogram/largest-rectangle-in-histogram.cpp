@@ -1,4 +1,4 @@
-class Solution {
+class Solution { // TC = SC = O(N)
 public:
     int largestRectangleArea(vector<int>& heights) {
         int n = heights.size();
@@ -7,7 +7,7 @@ public:
         stack<int> s;
 
         // right smaller
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) { // O(N)
             while (s.size() > 0 && heights[s.top()] >= heights[i]) {
                 s.pop();
             }
@@ -20,7 +20,7 @@ public:
         }
 
         // left smaller
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) { //O(N)
             while (s.size() > 0 && heights[s.top()] >= heights[i]) {
                 s.pop();
             }
@@ -29,7 +29,7 @@ public:
         }
 
         int ans = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {//O(N)
             int width = right[i] - left[i] - 1;
             int currArea = heights[i] * width;
             ans = max(ans, currArea);
