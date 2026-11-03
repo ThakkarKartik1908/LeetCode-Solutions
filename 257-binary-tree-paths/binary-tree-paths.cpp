@@ -12,7 +12,7 @@
  */
 class Solution {
 public:
-    void allPaths(TreeNode* root, string paths, vector<string>& ans) {
+    void allPaths(TreeNode* root, string paths, vector<string>& ans) { //O(n)
         if (root->left == NULL && root->right == NULL) {
             ans.push_back(paths);
             return;
